@@ -1,7 +1,7 @@
 
 
 angular.module('ohadApp', [])
-    .controller('mainCtrl', function ($scope, $window) {
+    .controller('mainCtrl', function ($scope, $window, $timeout) {
         const CONST = {
             GET_MOVIES_LINK:'http://localhost:8080/get_movies/',
             SPLIT_COUNT: 6
@@ -38,17 +38,17 @@ angular.module('ohadApp', [])
             return;
         };
 
-        $scope.init = function () {
+        $scope.init = async function () {
             $scope.itemsByTitle = [];
             $scope.text = '';
             $scope.minlength = 1;
             $scope.selected = {};
             $scope.filteredChoices = [];
             $scope.normalizedArray = [];
-        }
-
-        $scope.getMovies = async function () {
-            getMoviesAPI();
+            $scope.isVisible = {
+                suggestions: false
+            };
+            $scope.filteredChoices = await getMoviesAPI();
         }
 
         function normalize (myArray, splitCount) {
@@ -59,52 +59,54 @@ angular.module('ohadApp', [])
             return result;
         }
 
-    $scope.isVisible = {
-        suggestions: false
-    };
+        $scope.testValue = 0;
 
-    $scope.filterItems = function () {
-        if($scope.minlength <= $scope.enteredtext.length) {
-            $scope.filteredChoices = querySearch($scope.enteredtext);
-            $scope.isVisible.suggestions = $scope.filteredChoices.length > 0 ? true : false;
-            $scope.normalizedArray = normalize($scope.filteredChoices, 5);
-        }
-        else {
-            $scope.isVisible.suggestions = false;
-            $scope.normalizedArray = $scope.normalizedArrayTemp;
-        }
-    };
+        $timeout(function() {
+            console.log($scope.testValue++);
+        }, 500);
 
-    /**
-     * Takes one based index to save selected choice object
-     */
-    $scope.selectItem = function (index) {
-        $scope.selected = $scope.itemsByTitle[index - 1];
-        $scope.enteredtext = $scope.selected.label;
-        $scope.isVisible.suggestions = false;
-    };
-
-    /**
-     * Search for states... use $timeout to simulate
-     * remote dataservice call.
-     */
-    function querySearch (query) {
-        // returns list of filtered items
-        return  query ? $scope.itemsByTitle.filter( createFilterFor(query) ) : [];
-    }
-
-    /**
-     * Create filter function for a query string
-     */
-    function createFilterFor(query) {
-        var lowercaseQuery = angular.lowercase(query);
-
-        return function filterFn(item) {
-            // Check if the given item matches for the given query
-            var label = angular.lowercase(item.label);
-            return (label.indexOf(lowercaseQuery) === 0);
+        $scope.filterItems = function () {
+            if($scope.minlength <= $scope.enteredtext.length) {
+                $scope.filteredChoices = querySearch($scope.enteredtext);
+                $scope.isVisible.suggestions = $scope.filteredChoices.length > 0 ? true : false;
+                $scope.normalizedArray = normalize($scope.filteredChoices, 5);
+            }
+            else {
+                $scope.isVisible.suggestions = false;
+                $scope.normalizedArray = $scope.normalizedArrayTemp;
+            }
         };
-    }
+
+        /**
+         * Takes one based index to save selected choice object
+         */
+        $scope.selectItem = function (index) {
+            $scope.selected = $scope.itemsByTitle[index - 1];
+            $scope.enteredtext = $scope.selected.label;
+            $scope.isVisible.suggestions = false;
+        };
+
+        /**
+         * Search for states... use $timeout to simulate
+         * remote dataservice call.
+         */
+        function querySearch (query) {
+            // returns list of filtered items
+            return  query ? $scope.itemsByTitle.filter( createFilterFor(query) ) : [];
+        }
+
+        /**
+         * Create filter function for a query string
+         */
+        function createFilterFor(query) {
+            var lowercaseQuery = angular.lowercase(query);
+
+            return function filterFn(item) {
+                // Check if the given item matches for the given query
+                var label = angular.lowercase(item.label);
+                return (label.indexOf(lowercaseQuery) === 0);
+            };
+        }
 });
 
     angular.module('ohadApp')
