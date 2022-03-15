@@ -5,67 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13c2dcb7-1ca1-4788-b9ae-ae2834f1eddc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Run-project-instruction.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello-heart-ohad-bar.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Analyzer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Routes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Routes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/BloodTestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dto/BloodTestConfigDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dto/BloodTestConfigWrapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dto/BloodTestResp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/enums/ResponseType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/services/BloodTestConfigService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/services/BloodTestService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/services/SpellsAnalyzerImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/services/WordsAnalyzerImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/html/blood-test-form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/html/titles.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/autocomplete.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/autocomplete.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/controller/mini-clinical-ctrl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/directives/blood-test-form.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/directives/name-validation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/directives/titles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/controller/mainCtrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/controller/mainCtrl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/controller/search-auto-complete-ctrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/controller/search-auto-complete-ctrl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/search-direcrtive.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/search-direcrtive.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/services/u-api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/services/u-api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/AnalyzerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/AnalyzerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Analyzer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Application.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Constants.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/Routes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Routes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/BloodTestController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/dto/BloodTestConfigDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/dto/BloodTestConfigWrapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/dto/BloodTestResp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/enums/ResponseType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/services/BloodTestConfigService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/services/BloodTestService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/services/SpellsAnalyzerImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/services/WordsAnalyzerImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/html/blood-test-form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/html/titles.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/js/controller/mini-clinical-ctrl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/js/directives/blood-test-form.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/js/directives/name-validation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/js/directives/titles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/js/search-direcrtive.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/js/search-direcrtive.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/public/js/services/u-api.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/js/services/u-api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spring-boot-initial-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.AnalyzerTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.AnalyzerTest.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/AnalyzerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/AnalyzerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,6 +37,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -94,17 +51,6 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="spring-boot-ohad" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.Application" />
@@ -121,7 +67,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1647349511212</updated>
-      <workItem from="1647349513173" duration="862000" />
+      <workItem from="1647349513173" duration="1271000" />
+      <workItem from="1647350839361" duration="1985000" />
     </task>
     <servers />
   </component>

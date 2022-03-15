@@ -1,9 +1,67 @@
-(function (angular) {
-    'use strict';
 
-angular.module('ohadApp')
-    .controller('searchAutoCompleteCtrl', function($scope) {
 
+angular.module('ohadApp', [])
+    .controller('searchAutoCompleteCtrl', function ($scope, $window, $timeout) {
+        const CONST = {
+            GET_MOVIES_LINK:'http://localhost:8080/get_movies/',
+            SPLIT_COUNT: 6
+        };
+
+        function getMoviesAPI() {
+            const getSyncApi = async (resource) => {
+                const response = await fetch(resource + "new york");
+                if(response.status !== 200) {
+                    throw new Error('cannot fetch the data');
+                }
+                const data = await response.json();
+                return data;
+            }
+
+            getSyncApi(CONST.GET_MOVIES_LINK).then(data => {
+                console.log('prmoise 1 resolved:', data);
+                $scope.items = data.result;
+                $scope.normalizedArray = normalize($scope.items, CONST.SPLIT_COUNT);
+                $scope.itemsByTitle = [];
+                angular.forEach($scope.items, function(item, index) {
+                    //console.log(item, index);
+                    $scope.itemsByTitle.push({label: item.Title, Poster: item.Poster});
+                });
+                $scope.filteredChoices = $scope.itemsByTitle;
+            })
+                .catch(err => {
+                        console.log('prmoise reject', err.message);
+                        $window.alert("ERROR GET MOVIES:" + err.message);
+                        $scope.erros = err;
+                    }
+                );
+            return;
+        };
+
+        $scope.init = function () {
+            const x = 4;
+        }
+
+        $scope.getMovies = async function () {
+            getMoviesAPI();
+        }
+
+        function normalize (myArray, splitCount) {
+            let result = [];
+            for (let i = 0; i < (myArray.length / splitCount); i++) {
+                result[i] = myArray.slice(i*splitCount, (i*splitCount) + splitCount);
+            }
+            return result;
+        }
+
+        $scope.GenerateTable = function () {
+
+        }
+
+        $scope.itemsByTitle = [];
+
+        $scope.text = '';
+        $scope.minlength = 1;
+        $scope.selected = {};
     $scope.filteredChoices = [];
     $scope.normalizedArray = [];
     $scope.isVisible = {
@@ -21,20 +79,11 @@ angular.module('ohadApp')
         }
     };
 
-        function normalize (myArray, splitCount) {
-            let result = [];
-            for (let i = 0; i < (myArray.length / splitCount); i++) {
-                result[i] = myArray.slice(i*splitCount, (i*splitCount) + splitCount);
-            }
-            return result;
-        }
-
-
     /**
      * Takes one based index to save selected choice object
      */
     $scope.selectItem = function (index) {
-        $scope.selected = $scope.choices[index - 1];
+        $scope.selected = $scope.itemsByTitle[index - 1];
         $scope.enteredtext = $scope.selected.label;
         $scope.isVisible.suggestions = false;
     };
@@ -45,7 +94,7 @@ angular.module('ohadApp')
      */
     function querySearch (query) {
         // returns list of filtered items
-        return  query ? $scope.choices.filter( createFilterFor(query) ) : [];
+        return  query ? $scope.itemsByTitle.filter( createFilterFor(query) ) : [];
     }
 
     /**
@@ -62,4 +111,16 @@ angular.module('ohadApp')
     }
 });
 
-})(angular);
+    angular.module('ohadApp')
+        .filter('bytesToGB', ['uConstants', function(uConstants) {
+            return function(input, total) {
+                total = parseInt(total);
+
+                for (let i=0; i<total; i++) {
+                    input.push(i);
+                }
+
+                return input;
+            }
+        }]);
+
