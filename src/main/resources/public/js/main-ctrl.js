@@ -1,7 +1,7 @@
 
 
 angular.module('ohadApp', [])
-    .controller('searchAutoCompleteCtrl', function ($scope, $window, $timeout) {
+    .controller('mainCtrl', function ($scope, $window) {
         const CONST = {
             GET_MOVIES_LINK:'http://localhost:8080/get_movies/',
             SPLIT_COUNT: 6
@@ -21,6 +21,7 @@ angular.module('ohadApp', [])
                 console.log('prmoise 1 resolved:', data);
                 $scope.items = data.result;
                 $scope.normalizedArray = normalize($scope.items, CONST.SPLIT_COUNT);
+                $scope.normalizedArrayTemp = $scope.normalizedArray;
                 $scope.itemsByTitle = [];
                 angular.forEach($scope.items, function(item, index) {
                     //console.log(item, index);
@@ -38,7 +39,12 @@ angular.module('ohadApp', [])
         };
 
         $scope.init = function () {
-            const x = 4;
+            $scope.itemsByTitle = [];
+            $scope.text = '';
+            $scope.minlength = 1;
+            $scope.selected = {};
+            $scope.filteredChoices = [];
+            $scope.normalizedArray = [];
         }
 
         $scope.getMovies = async function () {
@@ -53,17 +59,6 @@ angular.module('ohadApp', [])
             return result;
         }
 
-        $scope.GenerateTable = function () {
-
-        }
-
-        $scope.itemsByTitle = [];
-
-        $scope.text = '';
-        $scope.minlength = 1;
-        $scope.selected = {};
-    $scope.filteredChoices = [];
-    $scope.normalizedArray = [];
     $scope.isVisible = {
         suggestions: false
     };
@@ -76,6 +71,7 @@ angular.module('ohadApp', [])
         }
         else {
             $scope.isVisible.suggestions = false;
+            $scope.normalizedArray = $scope.normalizedArrayTemp;
         }
     };
 

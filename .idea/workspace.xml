@@ -6,20 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="13c2dcb7-1ca1-4788-b9ae-ae2834f1eddc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/autocomplete.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/autocomplete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/autocomplete.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/controller/mainCtrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/controller/mainCtrl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/controller/search-auto-complete-ctrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/controller/search-auto-complete-ctrl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/search-direcrtive.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/search-direcrtive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/services/u-api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/services/u-api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Routes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Routes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/controller/mainCtrl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/controller/search-auto-complete-ctrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/main-ctrl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/search-direcrtive.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/services/u-api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/autocomplete.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/js/search-direcrtive.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/js/search-direcrtive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/js/services/u-api.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/js/services/u-api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/AnalyzerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/AnalyzerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/js/controller/mainCtrl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/js/controller/search-auto-complete-ctrl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/js/search-direcrtive.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/js/services/u-api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/script.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +50,11 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/public/js" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="spring-boot-ohad" />
@@ -68,7 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1647349511212</updated>
       <workItem from="1647349513173" duration="1271000" />
-      <workItem from="1647350839361" duration="1985000" />
+      <workItem from="1647350839361" duration="2711000" />
     </task>
     <servers />
   </component>

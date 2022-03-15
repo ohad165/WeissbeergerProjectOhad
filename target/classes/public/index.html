@@ -9,26 +9,13 @@
         <link href="css/main.css" rel="stylesheet"/>
 
         <!--load controller-->
-        <script src="script.js"></script>
-<!--        <script src="js/controller/mainCtrl.js"></script>-->
-        <script src="js/controller/search-auto-complete-ctrl.js"></script>
-
-        <!--load directives-->
-<!--        <script src="js/directives/search-auto-complete.js"></script>-->
-<!--        <script src="js/search-direcrtive.js"></script>-->
-
-        <!--load service-->
-        <script src="js/services/u-api.js"></script>
+        <script src="js/main-ctrl.js"></script>
     </head>
 
-    <body class="body-class" ng-controller="searchAutoCompleteCtrl" ng-init="init()">
+    <body class="body-class" ng-controller="mainCtrl" ng-init="init()">
     <div>
         <div class="wrapper">
             <button ng-click="getMovies()">Get movies</button>
-<!--            <search-auto-complete choices="itemsByTitle" enteredtext="text"-->
-<!--                          minlength="1" selected="selected">-->
-
-<!--            </search-auto-complete>-->
             <div >
                 <input class="inputtext" type="text" ng-model="enteredtext" ng-keyup="filterItems()"/>
                 <div class="choices" ng-show="isVisible.suggestions">
