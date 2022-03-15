@@ -1,0 +1,85 @@
+<!doctype html>
+
+<html ng-app="ohadApp" >
+    <head>
+        <!--load libraries-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+
+        <!--load css-->
+        <link href="css/main.css" rel="stylesheet"/>
+
+        <!--load controller-->
+        <script src="script.js"></script>
+        <script src="js/controller/mainCtrl.js"></script>
+        <script src="js/controller/search-auto-complete-ctrl.js"></script>
+
+        <!--load directives-->
+        <script src="js/directives/search-auto-complete.js"></script>
+        <script src="js/search-direcrtive.js"></script>
+
+        <!--load service-->
+        <script src="js/services/u-api.js"></script>
+    </head>
+
+    <body class="body-class" ng-controller="mainCtrl">
+        <div class="wrapper">
+            <button ng-click="getMovies()">Get movies</button>
+            <search-auto-complete choices="itemsByTitle" enteredtext="text"
+                          minlength="1" selected="selected">
+
+            </search-auto-complete>
+            <pre>
+              Entered text: {{text}}
+              Minimum length: {{minlength}}
+              Selected: {{selected}}
+            </pre>
+        </div>
+
+<!--        <div>-->
+<!--            <img ng-src=https://m.media-amazon.com/images/M/MV5BNDg3MmI1ZDYtMDZjYi00ZWRlLTk4NzEtZjY4Y2U0NjE5YmRiXkEyXkFqcGdeQXVyNzAxMjE1NDg@._V1_SX300.jpg>-->
+
+<!--        </div>-->
+
+<!--        <ul>-->
+<!--            <li ng-repeat="item in items">{{item.imdbID}}</li>-->
+<!--        </ul>-->
+
+<!--        <div ng-repeat="movie in items">-->
+<!--            <img ng-src={{movie.Poster}}>-->
+<!--            {{movie.imdbID}}-->
+<!--        </div>-->
+
+
+<!--        <div>-->
+<!--            <h1>Topics</h1>-->
+<!--                <img ng-src={{check}}>-->
+
+<!--        </div>-->
+
+<!--        <div>-->
+<!--            <h1>Topics</h1>-->
+
+<!--        </div>-->
+
+
+        <div>
+        <table>
+            <tbody>
+            <tr ng-repeat='array in normalizedArray'>
+                <td ng-repeat='item in array'>
+                    <img ng-src="{{item.Poster}}" width="250" height="350" style="padding:11px;" />
+                <td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <!--        <div ng-model="check">-->
+<!--            <img ng-src={{check}}>-->
+<!--        </div>-->
+<!--            <img ng-model="check" ng-src={{check}}>-->
+<!--            <img ng-src=check1>-->
+<!--            <img ng-src=check2>-->
+    </body>
+
+</html>

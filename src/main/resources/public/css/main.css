@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+.color-red {
+    color: #150101
+}
+
+.title {
+    padding-left: 15px;
+}
+
+h1 {
+    color: #282626;
+    font-size: 48px;
+    font-family: 'Signika',
+    sans-serif;
+    padding-bottom: 10px;
+}
+
+body {
+    background-color: indianred;
+}
+
+.form-div-wrapper {
+    margin-top:170px;
+    margin-right:70px;
+}
+
+.submit-button-wrapper {
+    margin-left:85px;
+}
+
+.submit-button {
+    min-width:120px;
+}
+
+.mini-clinical-title {
+    font-size:26px;
+    padding-left:15px;
+}
+
+.blood-test-title {
+    font-size:20px;
+}
+
+.submit-button-wrapper {
+    margin-left:85px;
+}
+
+
+
+.wrapper {
+    margin: auto;
+    max-width: 400px;
+}
+.autocomplete, pre {
+    width: calc(100% - 20px);
+}
+
+.inputtext {
+    border: 1px solid grey;
+    margin: 0;
+    padding: 5px;
+    width: 100%;
+}
+
+.choices .choice {
+    border: 1px solid #ccc;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+}
