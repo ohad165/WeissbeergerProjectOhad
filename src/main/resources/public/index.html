@@ -8,7 +8,7 @@
         <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
         <!--load css-->
@@ -61,8 +61,8 @@
                 <tbody>
                 <tr ng-repeat='array in normalizedArray'>
                     <td ng-repeat='item in array' style="padding:15px;">
-                        <div ng-if="movieDetailsDto.isWishListMovie">
-
+                        <div ng-if="item.isWishListMovie">
+                        <i class="fa fa-thumbs-up"></i>
                         </div>
 
                         <img ng-src="{{item.Poster}}" width="250" height="350" ng-click="openMovieModal(item)" />

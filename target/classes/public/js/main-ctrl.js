@@ -124,6 +124,7 @@ angular.module('ohadApp', ['ui.bootstrap'])
             // $scope.enteredText = $scope.selected.label;
             // $scope.isVisible.suggestions = false;
         };
+
 }]);
 
     angular.module('ohadApp')
