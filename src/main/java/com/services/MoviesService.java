@@ -19,10 +19,7 @@ import static com.Constants.ERROR_BLOOD_TEST_CONFIG_PULLING_API_MSG;
 @Service
 public class MoviesService {
 
-    public static final String GET_MOVIES = "/getMovies/";
-    public static final String GET_MOVIES_FROM_OMDBAPI = "https://www.omdbapi.com/?apikey=";
-    private String API_KEY_NAME = "apiKey";
-    private String apiKeyValue;
+    public static final String GET_MOVIES_FROM_OMDBAPI = "https://www.omdbapi.com/?apikey=bb182d9e&type=movie&s=";
 
     private RestTemplate restTemplate;
 
@@ -37,19 +34,16 @@ public class MoviesService {
     }
 
     public List<MovieDto> getMovies(String name) {
-        return getMoviesWrapper().getMoviesArray();
+        return getMoviesWrapper(name).getMoviesArray();
     }
 
-    private MoviesListDtoWrapper getMoviesWrapper() {
-        return getBloodTestConfigJsonHelper().getBody();
+    private MoviesListDtoWrapper getMoviesWrapper(String name) {
+        return getBloodTestConfigJsonHelper(name).getBody();
     }
 
-    private ResponseEntity<MoviesListDtoWrapper> getBloodTestConfigJsonHelper() {
+    private ResponseEntity<MoviesListDtoWrapper> getBloodTestConfigJsonHelper(String name) {
         ResponseEntity<MoviesListDtoWrapper> response = restTemplate
-                .getForEntity(
-//                        GET_MOVIES_FROM_OMDBAPI + apiKeyValue + "&i=tt1285016&type=movie",
-                        "https://www.omdbapi.com/?apikey=bb182d9e&type=movie&s=new york",
-                        MoviesListDtoWrapper.class);
+                .getForEntity(GET_MOVIES_FROM_OMDBAPI + name, MoviesListDtoWrapper.class);
         if (response.getStatusCode() != HttpStatus.OK) {
             logger.error(ERROR_BLOOD_TEST_CONFIG_PULLING_API_MSG, response.getStatusCode());
         }

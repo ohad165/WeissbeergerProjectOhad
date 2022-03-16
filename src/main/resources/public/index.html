@@ -2,40 +2,49 @@
 
 <html ng-app="ohadApp">
     <head>
-        <!--load libraries-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+
+        <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+        <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
 
         <!--load css-->
         <link href="css/main.css" rel="stylesheet"/>
 
         <!--load controller-->
         <script src="js/main-ctrl.js"></script>
+        <script src="js/movie-modal-ctrl.js"></script>
     </head>
 
     <body class="body-class" ng-controller="mainCtrl" ng-init="init()">
     <div>
-        <div class="wrapper">
-            <button ng-click="getMovies()">Get movies</button>
-            <div >
-                <input class="inputtext" type="text" ng-model="enteredtext" ng-keyup="filterItems()"/>
-                <div class="choices" ng-show="isVisible.suggestions">
+        <div class="wrapper" style="min-height: 250px;">
+            <br>
+            <br>
+            <div>
+                <i class="search-tag-result">search</i>
+                <input class="inputtext" type="text" ng-model="enteredText" ng-keyup="filterItems()"/>
+                <div class="choices" ng-show="isVisible.suggestions" style="max-height:140px; overflow-y:scroll;">
                     <div class="choice" ng-repeat="choice in filteredChoices"
                          ng-click="selectItem(choice.index)">{{choice.label}}</div>
                 </div>
             </div>
-            <pre>
-              Entered text: {{text}}
-              Minimum length: {{minlength}}
-              Selected: {{selected}}
-            </pre>
+        </div>
+
+        <div style="padding:20px;" ng-if="enteredText">
+            <div>
+                Search Results for "{{enteredText}}"
+            </div>
+            <hr class="rounded" style="height:1px;border:none;color:#333;background-color:#333;">
         </div>
 
         <div>
             <table>
                 <tbody>
                 <tr ng-repeat='array in normalizedArray'>
-                    <td ng-repeat='item in array'>
-                        <img ng-src="{{item.Poster}}" width="250" height="350" style="padding:11px;" />
+                    <td ng-repeat='item in array' style="padding:15px;">
+                        <img ng-src="{{item.Poster}}" width="250" height="350" ng-click="openMovieModal(item)" />
                     <td>
                 </tr>
                 </tbody>

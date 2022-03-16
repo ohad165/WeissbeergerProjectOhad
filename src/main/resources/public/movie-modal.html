@@ -1,0 +1,27 @@
+<div ng-init="init()" style="min-height: 500px;">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">{{movieModal.label}}</h3>
+    </div>
+    <div class="modal-body float-container" id="modal-body">
+        <div class="float-child">
+        <form>
+            <div class="form-group">
+                <label>Rating:</label>
+                <br>
+                <label>Actors:</label>
+                <br>
+                <label>Generes:</label>
+                <br>
+                <label>Released:</label>
+                <br>
+                <label>Date:</label>
+                <br>
+                <label>Plot:</label>
+            </div>
+        </form>
+        </div>
+        <div class="float-child">
+            <img ng-src="{{movieModal.Poster}}" width="250" height="350" />
+        </div>
+    </div>
+</div>

@@ -1,7 +1,6 @@
-package com.controller;
+package com;
 
 
-import com.Routes;
 import com.dto.MovieDetailsDto;
 import com.dto.MovieDto;
 import com.services.MoviesService;

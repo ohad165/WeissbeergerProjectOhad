@@ -1,36 +1,57 @@
+(function (angular) {
+    'use strict';
 
 
-angular.module('ohadApp', [])
-    .controller('mainCtrl', function ($scope, $window, $timeout) {
+angular.module('ohadApp', ['ui.bootstrap'])
+    .controller('mainCtrl', ['$scope' , '$window', '$interval', '$uibModal' ,
+        function ($scope, $window, $interval, $uibModal) {
         const CONST = {
             GET_MOVIES_LINK:'http://localhost:8080/get_movies/',
+            GET_MOVIE_DETAILS_LINK:'http://localhost:8080/get_movies_details/',
             SPLIT_COUNT: 6
         };
 
-        function getMoviesAPI() {
-            const getSyncApi = async (resource) => {
-                const response = await fetch(resource + "new york");
-                if(response.status !== 200) {
-                    throw new Error('cannot fetch the data');
-                }
-                const data = await response.json();
-                return data;
+        const getSyncApi = async (resource) => {
+            const response = await fetch(resource);
+            if(response.status !== 200) {
+                throw new Error('cannot fetch the data');
             }
+            const data = await response.json();
+            return data;
+        }
 
-            getSyncApi(CONST.GET_MOVIES_LINK).then(data => {
-                console.log('prmoise 1 resolved:', data);
-                $scope.items = data.result;
-                $scope.normalizedArray = normalize($scope.items, CONST.SPLIT_COUNT);
-                $scope.normalizedArrayTemp = $scope.normalizedArray;
-                $scope.itemsByTitle = [];
-                angular.forEach($scope.items, function(item, index) {
-                    //console.log(item, index);
-                    $scope.itemsByTitle.push({label: item.Title, Poster: item.Poster});
-                });
-                $scope.filteredChoices = $scope.itemsByTitle;
+        function getMoviesAPI() {
+            getSyncApi(CONST.GET_MOVIES_LINK + $scope.enteredText).then(data => {
+                if(data.result) {
+                    $scope.items = data.result;
+                    $scope.itemsByTitle = [];
+                    angular.forEach($scope.items, function(item, index) {
+                        //console.log(item, index);
+                        if(item.Poster && item.Poster != "N/A") {
+                            $scope.itemsByTitle.push({label: item.Title, Poster: item.Poster});
+                        }
+                    });
+                    $scope.filteredChoices = $scope.itemsByTitle;
+                    $scope.isVisible.suggestions = $scope.filteredChoices.length > 0 ? true : false;
+                    $scope.normalizedArray = normalize($scope.itemsByTitle, CONST.SPLIT_COUNT);
+                    $scope.normalizedArrayTemp = $scope.normalizedArray;
+                    return $scope.normalizedArray;
+                }
             })
                 .catch(err => {
-                        console.log('prmoise reject', err.message);
+                        $window.alert("ERROR GET MOVIES:" + err.message);
+                        $scope.erros = err;
+                    }
+                );
+            return;
+        };
+
+        function getMoviesDetailsAPI() {
+            getSyncApi(CONST.GET_MOVIE_DETAILS_LINK).then(data => {
+                $scope.movieDetailsDto = data.result;
+
+            })
+                .catch(err => {
                         $window.alert("ERROR GET MOVIES:" + err.message);
                         $scope.erros = err;
                     }
@@ -48,7 +69,6 @@ angular.module('ohadApp', [])
             $scope.isVisible = {
                 suggestions: false
             };
-            $scope.filteredChoices = await getMoviesAPI();
         }
 
         function normalize (myArray, splitCount) {
@@ -59,21 +79,34 @@ angular.module('ohadApp', [])
             return result;
         }
 
+
+            $scope.openMovieModal = function(item) {
+                $scope.movieModal = item;
+                $uibModal.open({
+                    templateUrl: 'movie-modal.html',
+                    controller: 'movieModalCtrl',
+                    windowClass: 'app-modal-window',
+                    scope: $scope,
+                    resolve: {
+                        movieModal: function () {
+                            return $scope.movieModal;
+                        }
+                    }
+                });
+        }
+
         $scope.testValue = 0;
 
-        $timeout(function() {
+        $interval(function() {
             console.log($scope.testValue++);
         }, 500);
 
-        $scope.filterItems = function () {
-            if($scope.minlength <= $scope.enteredtext.length) {
-                $scope.filteredChoices = querySearch($scope.enteredtext);
-                $scope.isVisible.suggestions = $scope.filteredChoices.length > 0 ? true : false;
-                $scope.normalizedArray = normalize($scope.filteredChoices, 5);
+        $scope.filterItems = async function () {
+            if($scope.minlength <= $scope.enteredText.length) {
+                $scope.normalizedArray = await getMoviesAPI();
             }
             else {
                 $scope.isVisible.suggestions = false;
-                $scope.normalizedArray = $scope.normalizedArrayTemp;
             }
         };
 
@@ -82,12 +115,12 @@ angular.module('ohadApp', [])
          */
         $scope.selectItem = function (index) {
             $scope.selected = $scope.itemsByTitle[index - 1];
-            $scope.enteredtext = $scope.selected.label;
+            $scope.enteredText = $scope.selected.label;
             $scope.isVisible.suggestions = false;
         };
 
         /**
-         * Search for states... use $timeout to simulate
+         * Search for states... use $interval to simulate
          * remote dataservice call.
          */
         function querySearch (query) {
@@ -107,7 +140,7 @@ angular.module('ohadApp', [])
                 return (label.indexOf(lowercaseQuery) === 0);
             };
         }
-});
+}]);
 
     angular.module('ohadApp')
         .filter('bytesToGB', ['uConstants', function(uConstants) {
@@ -122,3 +155,4 @@ angular.module('ohadApp', [])
             }
         }]);
 
+})(angular);
