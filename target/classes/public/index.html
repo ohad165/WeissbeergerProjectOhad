@@ -23,26 +23,22 @@
             <br>
             <br>
             <div>
-                <label>OHAD CINEMA</label>
+                <h1>MY CINEMA</h1>
                 <input class="inputtext" type="text" ng-model="enteredText" ng-keyup="filterItems()"/>
-                <div class="choices" ng-show="isVisible.suggestions" style="max-height:127px; overflow-y:scroll;">
+                <div class="choices" ng-show="isVisible.suggestions" style="max-height:129px; overflow-y:scroll;">
                     <div class="choice" ng-repeat="choice in filteredChoices"
-                         ng-click="selectItem(choice.index)">{{choice.label}}</div>
+                         ng-click="redirectToMovie(choice)">{{choice.label}}</div>
                 </div>
             </div>
         </div>
 
         <div style="padding:20px;" ng-if="enteredText">
-            <div style="font-size:18px;">
-                Search Results for "{{enteredText}}"
-            </div>
+            <h2>Search Results for "{{enteredText}}"</h2>
             <hr class="rounded" style="height:1px;border:none;color:#333;background-color:#333;">
         </div>
 
         <div style="padding:20px;" ng-if="!enteredText">
-            <div style="font-size:24px;">
-                Your Wishlist:
-            </div>
+            <h2>Your Wishlist ...</h2>
             <hr class="rounded" style="height:1px;border:none;color:#333;background-color:#333;">
         </div>
 

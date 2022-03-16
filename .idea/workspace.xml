@@ -5,26 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13c2dcb7-1ca1-4788-b9ae-ae2834f1eddc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dto/RatingDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Routes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dto/MovieDetailsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dto/MovieDetailsDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dto/MovieDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dto/MovieDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/services/MoviesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/services/MoviesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/main-ctrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/main-ctrl.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/movie-modal-ctrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/movie-modal-ctrl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/movie-modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/movie-modal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Routes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/services/MoviesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/services/MoviesService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/public/js/main-ctrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/js/main-ctrl.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/public/js/movie-modal-ctrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/js/movie-modal-ctrl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/movie-modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/movie-modal.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1647349511212</updated>
       <workItem from="1647349513173" duration="1271000" />
-      <workItem from="1647350839361" duration="23105000" />
+      <workItem from="1647350839361" duration="24424000" />
     </task>
     <servers />
   </component>

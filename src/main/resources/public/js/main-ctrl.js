@@ -33,7 +33,6 @@ angular.module('ohadApp', ['ui.bootstrap'])
                     $scope.filteredChoices = $scope.itemsByTitle;
                     $scope.isVisible.suggestions = $scope.filteredChoices.length > 0 ? true : false;
                     $scope.normalizedArray = normalize($scope.itemsByTitle, CONST.SPLIT_COUNT);
-                    $scope.normalizedArrayTemp = $scope.normalizedArray;
                     return $scope.normalizedArray;
                 }
             })
@@ -58,7 +57,7 @@ angular.module('ohadApp', ['ui.bootstrap'])
                             return $scope.movieDetailsDto;
                         }
                     }
-                });
+                })
             })
                 .catch(err => {
                         $window.alert("ERROR GET MOVIES:" + err.message);
@@ -78,7 +77,7 @@ angular.module('ohadApp', ['ui.bootstrap'])
             $scope.isVisible = {
                 suggestions: false
             };
-            localStorage.clear();
+            localStorage.clear(); // remove when display
         }
 
         function normalize(myArray, splitCount) {
@@ -111,18 +110,19 @@ angular.module('ohadApp', ['ui.bootstrap'])
                     i = keys.length;
                 $scope.itemsByTitle = [];
                 while ( i-- ) {
-                    $scope.itemsByTitle.push( {Poster: keys[i] , label: localStorage.getItem(keys[i])} );
+                    $scope.itemsByTitle.push( JSON.parse(localStorage.getItem(keys[i])) );
                 }
 
                 $scope.normalizedArray = normalize($scope.itemsByTitle, CONST.SPLIT_COUNT);
-                $scope.normalizedArrayTemp = $scope.normalizedArray;
             }
         };
 
-        $scope.selectItem = function (index) {
-            $scope.selected = $scope.itemsByTitle[index - 1];
-            $scope.enteredText = $scope.selected.label;
-            $scope.isVisible.suggestions = false;
+        $scope.redirectToMovie = function (choice) {
+            $scope.itemsByTitle = [choice];
+            $scope.normalizedArray = normalize($scope.itemsByTitle, CONST.SPLIT_COUNT);
+            // $scope.selected = $scope.itemsByTitle[index - 1];
+            // $scope.enteredText = $scope.selected.label;
+            // $scope.isVisible.suggestions = false;
         };
 }]);
 

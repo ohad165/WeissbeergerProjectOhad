@@ -7,17 +7,17 @@ angular.module('ohadApp')
 
         $scope.init = function() {
             $scope.movieModal = movieModal;
-            const isWishListMovie = window.localStorage.getItem($scope.movieModal.Poster);
-            if(isWishListMovie) {
+            const wishListMovie = JSON.parse(window.localStorage.getItem($scope.movieModal.imdbID));
+            if(wishListMovie) {
                 $scope.movieDetailsDto.isWishListMovie = true;
             }
         }
 
         $scope.wishListCheckBoxPressed = function() {
             if($scope.movieDetailsDto.isWishListMovie == true) {
-                window.localStorage.setItem($scope.movieModal.Poster, $scope.movieModal.Title);
+                window.localStorage.setItem($scope.movieModal.imdbID, JSON.stringify($scope.movieModal));
             } else {
-                window.localStorage.removeItem($scope.movieModal.Poster);
+                window.localStorage.removeItem($scope.movieModal.imdbID);
             }
         }
     })
