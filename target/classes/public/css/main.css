@@ -84,3 +84,20 @@ body {
 .container { position: relative; }
 .container img { display: block; }
 .container .fa-download { position: absolute; bottom:0; left:0; }
+
+.search input {
+    width: 270px;
+    height: 32px;
+
+    background: #fcfcfc;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+}
+
+.search input { }
+.search .fa-search {
+    top: 10px;
+
+}
+
