@@ -52,9 +52,7 @@ public class MoviesService {
 
     public ResponseEntity<MovieDetailsDto> getMovieDetails(String imdbID) {
         ResponseEntity<MovieDetailsDto> response = restTemplate
-                .getForEntity(
-//                        GET_MOVIES_FROM_OMDBAPI + apiKeyValue + "&i=tt1285016&type=movie",
-                        "https://www.omdbapi.com/?apikey=bb182d9e&type=movie&s=new york",
+                .getForEntity("https://www.omdbapi.com/?apikey=bb182d9e&type=movie&i=" + imdbID,
                         MovieDetailsDto.class);
         if (response.getStatusCode() != HttpStatus.OK) {
             logger.error(ERROR_BLOOD_TEST_CONFIG_PULLING_API_MSG, response.getStatusCode());

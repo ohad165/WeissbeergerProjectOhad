@@ -3,7 +3,7 @@
 
 
 angular.module('ohadApp', ['ui.bootstrap'])
-    .controller('mainCtrl', ['$scope' , '$window', '$interval', '$uibModal' ,
+    .controller('mainCtrl', ['$scope' , '$window', '$interval', '$uibModal',
         function ($scope, $window, $interval, $uibModal) {
         const CONST = {
             GET_MOVIES_LINK:'http://localhost:8080/get_movies/',
@@ -26,9 +26,8 @@ angular.module('ohadApp', ['ui.bootstrap'])
                     $scope.items = data.result;
                     $scope.itemsByTitle = [];
                     angular.forEach($scope.items, function(item, index) {
-                        //console.log(item, index);
                         if(item.Poster && item.Poster != "N/A") {
-                            $scope.itemsByTitle.push({label: item.Title, Poster: item.Poster});
+                            $scope.itemsByTitle.push({label: item.Title, Poster: item.Poster, imdbID: item.imdbID});
                         }
                     });
                     $scope.filteredChoices = $scope.itemsByTitle;
@@ -46,10 +45,20 @@ angular.module('ohadApp', ['ui.bootstrap'])
             return;
         };
 
-        function getMoviesDetailsAPI() {
-            getSyncApi(CONST.GET_MOVIE_DETAILS_LINK).then(data => {
+        function getMoviesDetailsAPI(imdbID) {
+            getSyncApi(CONST.GET_MOVIE_DETAILS_LINK + imdbID).then(data => {
                 $scope.movieDetailsDto = data.result;
-
+                $uibModal.open({
+                    templateUrl: 'movie-modal.html',
+                    controller: 'movieModalCtrl',
+                    windowClass: 'app-modal-window',
+                    scope: $scope,
+                    resolve: {
+                        movieModal: function () {
+                            return $scope.movieDetailsDto;
+                        }
+                    }
+                });
             })
                 .catch(err => {
                         $window.alert("ERROR GET MOVIES:" + err.message);
@@ -69,9 +78,10 @@ angular.module('ohadApp', ['ui.bootstrap'])
             $scope.isVisible = {
                 suggestions: false
             };
+            localStorage.clear();
         }
 
-        function normalize (myArray, splitCount) {
+        function normalize(myArray, splitCount) {
             let result = [];
             for (let i = 0; i < (myArray.length / splitCount); i++) {
                 result[i] = myArray.slice(i*splitCount, (i*splitCount) + splitCount);
@@ -79,20 +89,8 @@ angular.module('ohadApp', ['ui.bootstrap'])
             return result;
         }
 
-
-            $scope.openMovieModal = function(item) {
-                $scope.movieModal = item;
-                $uibModal.open({
-                    templateUrl: 'movie-modal.html',
-                    controller: 'movieModalCtrl',
-                    windowClass: 'app-modal-window',
-                    scope: $scope,
-                    resolve: {
-                        movieModal: function () {
-                            return $scope.movieModal;
-                        }
-                    }
-                });
+        $scope.openMovieModal = async function(item) {
+            $scope.movieModal = await getMoviesDetailsAPI(item.imdbID);
         }
 
         $scope.testValue = 0;
@@ -107,39 +105,25 @@ angular.module('ohadApp', ['ui.bootstrap'])
             }
             else {
                 $scope.isVisible.suggestions = false;
+
+                let values = [],
+                    keys = Object.keys(localStorage),
+                    i = keys.length;
+                $scope.itemsByTitle = [];
+                while ( i-- ) {
+                    $scope.itemsByTitle.push( {Poster: keys[i] , label: localStorage.getItem(keys[i])} );
+                }
+
+                $scope.normalizedArray = normalize($scope.itemsByTitle, CONST.SPLIT_COUNT);
+                $scope.normalizedArrayTemp = $scope.normalizedArray;
             }
         };
 
-        /**
-         * Takes one based index to save selected choice object
-         */
         $scope.selectItem = function (index) {
             $scope.selected = $scope.itemsByTitle[index - 1];
             $scope.enteredText = $scope.selected.label;
             $scope.isVisible.suggestions = false;
         };
-
-        /**
-         * Search for states... use $interval to simulate
-         * remote dataservice call.
-         */
-        function querySearch (query) {
-            // returns list of filtered items
-            return  query ? $scope.itemsByTitle.filter( createFilterFor(query) ) : [];
-        }
-
-        /**
-         * Create filter function for a query string
-         */
-        function createFilterFor(query) {
-            var lowercaseQuery = angular.lowercase(query);
-
-            return function filterFn(item) {
-                // Check if the given item matches for the given query
-                var label = angular.lowercase(item.label);
-                return (label.indexOf(lowercaseQuery) === 0);
-            };
-        }
 }]);
 
     angular.module('ohadApp')

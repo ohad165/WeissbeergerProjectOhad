@@ -23,9 +23,9 @@
             <br>
             <br>
             <div>
-                <i class="search-tag-result">search</i>
+                <label>OHAD CINEMA</label>
                 <input class="inputtext" type="text" ng-model="enteredText" ng-keyup="filterItems()"/>
-                <div class="choices" ng-show="isVisible.suggestions" style="max-height:140px; overflow-y:scroll;">
+                <div class="choices" ng-show="isVisible.suggestions" style="max-height:129px; overflow-y:scroll;">
                     <div class="choice" ng-repeat="choice in filteredChoices"
                          ng-click="selectItem(choice.index)">{{choice.label}}</div>
                 </div>
@@ -33,8 +33,15 @@
         </div>
 
         <div style="padding:20px;" ng-if="enteredText">
-            <div>
+            <div style="font-size:18px;">
                 Search Results for "{{enteredText}}"
+            </div>
+            <hr class="rounded" style="height:1px;border:none;color:#333;background-color:#333;">
+        </div>
+
+        <div style="padding:20px;" ng-if="!enteredText">
+            <div style="font-size:24px;">
+                Your Wishlist:
             </div>
             <hr class="rounded" style="height:1px;border:none;color:#333;background-color:#333;">
         </div>
@@ -44,7 +51,12 @@
                 <tbody>
                 <tr ng-repeat='array in normalizedArray'>
                     <td ng-repeat='item in array' style="padding:15px;">
+                        <div ng-if="movieDetailsDto.isWishListMovie">
+
+                        </div>
+
                         <img ng-src="{{item.Poster}}" width="250" height="350" ng-click="openMovieModal(item)" />
+
                     <td>
                 </tr>
                 </tbody>

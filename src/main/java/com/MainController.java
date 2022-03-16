@@ -25,10 +25,13 @@ public class MainController {
 
 	private final Logger logger = LoggerFactory.getLogger(MainController.class);
 
+	public static final String GET_MOVIES_FOR_SEARCH = "/get_movies/{name}";
+	public static final String GET_MOVIE_DETAILS = "/get_movies_details/{imdbID}";
+
 	@Autowired
 	private MoviesService moviesService;
 
-	@GetMapping(value = Routes.GET_MOVIES_FOR_SEARCH)
+	@GetMapping(value = GET_MOVIES_FOR_SEARCH)
 	public ModelMap getMovies(HttpServletRequest request, @PathVariable("name") String name) {
 		ModelMap model = new ModelMap();
 
@@ -43,7 +46,7 @@ public class MainController {
 		return model;
 	}
 
-	@GetMapping(value = Routes.GET_MOVIE_DETAILS)
+	@GetMapping(value = GET_MOVIE_DETAILS)
 	public ModelMap getMovieDetails(HttpServletRequest request, @PathVariable("imdbID") String imdbID) {
 		ModelMap model = new ModelMap();
 

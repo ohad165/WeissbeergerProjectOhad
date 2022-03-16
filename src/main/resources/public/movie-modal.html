@@ -1,27 +1,74 @@
-<div ng-init="init()" style="min-height: 500px;">
+<div ng-init="init()" style="min-height: 700px; min-width: 500px; overflow-y: scroll;">
     <div class="modal-header">
-        <h3 class="modal-title" id="modal-title">{{movieModal.label}}</h3>
+        <h3 class="modal-title" id="modal-title">{{movieModal.Title}}</h3>
     </div>
     <div class="modal-body float-container" id="modal-body">
         <div class="float-child">
         <form>
             <div class="form-group">
-                <label>Rating:</label>
+                <label>Year:</label> {{movieModal.Year}}
                 <br>
-                <label>Actors:</label>
+                <label>Rated:</label> {{movieModal.Rated}}
                 <br>
-                <label>Generes:</label>
+                <label>Actors:</label> {{movieModal.Rated}}
                 <br>
-                <label>Released:</label>
+                <label>Generes:</label> {{movieModal.Genre}}
                 <br>
-                <label>Date:</label>
+                <label>Released:</label> {{movieModal.Released}}
                 <br>
-                <label>Plot:</label>
+                <label>Director:</label> {{movieModal.Director}}
+                <br>
+                <label>Writer:</label> {{movieModal.Writer}}
+                <br>
+                <label>Plot:</label> {{movieModal.Plot}}
+                <br>
+                <label>Country:</label> {{movieModal.Country}}
+                <br>
+                <label>Awards:</label> {{movieModal.Awards}}
+                <br>
+                <label>Language:</label> {{movieModal.Language}}
+                <br>
+                <label>Language:</label> {{movieModal.Language}}
+                <br>
+                <label>Ratings:</label>
+                <table class="table table-dark">
+                    <thead>
+                    <tr>
+                        <th scope="col">Source</th>
+                        <th scope="col">Value</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in movieModal.Ratings">
+                        <td>{{item.Source}}</td>
+                        <td>{{item.Value}}</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </form>
         </div>
         <div class="float-child">
+            <input type="checkbox" ng-model="movieDetailsDto.isWishListMovie" ng-change="wishListCheckBoxPressed()">
+            <label>Add To Wishlist</label>
             <img ng-src="{{movieModal.Poster}}" width="250" height="350" />
+            <br>
+            <br>
+            <label>Metascore:</label> {{movieModal.Metascore}}
+            <br>
+            <label>imdbRating:</label> {{movieModal.imdbRating}}
+            <br>
+            <label>imdbVotes:</label> {{movieModal.imdbVotes}}
+            <br>
+            <label>Type:</label> {{movieModal.Type}}
+            <br>
+            <label>DVD:</label> {{movieModal.DVD}}
+            <br>
+            <label>BoxOffice:</label> {{movieModal.BoxOffice}}
+            <br>
+            <label>Production:</label> {{movieModal.Production}}
+            <br>
+            <label>Website:</label> {{movieModal.Website}}
         </div>
     </div>
 </div>

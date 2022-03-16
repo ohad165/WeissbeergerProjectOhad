@@ -1,30 +1,51 @@
 package com.dto;
 
 
-public class MovieDetailsDto extends MovieDto {
-    // do a call with the link and do the dto object by that
-    private String title;
-    private int year;
-    private String type;
-    private String Released;
-    private String Runtime;
-    private String Genre;
-    private String Director;
-    private String Writer;
-    private String Actors;
-    private String Plot;
-    private String Language;
-    private String Country;
-    private String Awards;
-    private String Ratings;
-    private int Metascore;
-    private String imdbRating;
-    private String imdbVotes;
-    private String Type;
-    private String DVD;
-    private String BoxOffice;
-    private String Production;
-    private String Website;
-    private String Response;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.ArrayList;
+
+public class MovieDetailsDto extends MovieDto {
+    @JsonProperty("Year")
+    public String year;
+    @JsonProperty("Rated")
+    public String rated;
+    @JsonProperty("Released")
+    public String released;
+    @JsonProperty("Runtime")
+    public String runtime;
+    @JsonProperty("Genre")
+    public String genre;
+    @JsonProperty("Director")
+    public String director;
+    @JsonProperty("Writer")
+    public String writer;
+    @JsonProperty("Actors")
+    public String actors;
+    @JsonProperty("Plot")
+    public String plot;
+    @JsonProperty("Language")
+    public String language;
+    @JsonProperty("Country")
+    public String country;
+    @JsonProperty("Awards")
+    public String awards;
+    @JsonProperty("Ratings")
+    public ArrayList<RatingDto> ratings;
+    @JsonProperty("Metascore")
+    public String metascore;
+    public String imdbRating;
+    public String imdbVotes;
+    @JsonProperty("Type")
+    public String type;
+    @JsonProperty("DVD")
+    public String dVD;
+    @JsonProperty("BoxOffice")
+    public String boxOffice;
+    @JsonProperty("Production")
+    public String production;
+    @JsonProperty("Website")
+    public String website;
+    @JsonProperty("Response")
+    public String response;
 }
