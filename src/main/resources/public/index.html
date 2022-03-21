@@ -61,11 +61,15 @@
                 <tbody>
                 <tr ng-repeat='array in normalizedArray'>
                     <td ng-repeat='item in array' style="padding:15px;">
-                        <div ng-if="item.isWishListMovie">
-                        <i class="fa fa-thumbs-up"></i>
+<!--                        <div class="tooltip"> Tooltip does not go outside the screen-->
+<!--                        </div>-->
+<!--                        <img ng-src="{{item.Poster}}" width="250" height="350" ng-click="openMovieModal(item)"/>-->
+                        <div data-title="{{ getTooltipMovieMessage(item) }}" style="max-height: 350px; overflow-y: auto">
+                            <div ng-if="item.isWishListMovie" style="text-align: center; font-size: 120%;">
+                                &#10084;&#65039;
+                            </div>
+                            <img ng-src="{{item.Poster}}"  width="250" height="350" ng-click="openMovieModal(item)"/>
                         </div>
-
-                        <img ng-src="{{item.Poster}}" width="250" height="350" ng-click="openMovieModal(item)" />
 
                     <td>
                 </tr>

@@ -10,5 +10,7 @@ public class MovieDto {
     public String poster;//here pull just 2 fields
     @JsonProperty("Title")
     public String title;
+    @JsonProperty("Year")
+    public String year;
 }
 

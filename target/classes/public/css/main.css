@@ -101,3 +101,32 @@ body {
 
 }
 
+[data-title]:hover:after {
+    opacity: 1;
+    transition: all 0.1s ease 0.5s;
+    visibility: visible;
+}
+[data-title]:after {
+    content: attr(data-title);
+    background-color: #020202;
+    color: #faf8f8;
+    font-size: 120%;
+    position: absolute;
+    border: 5px solid #FFFF00;
+    text-align: center;
+    max-width: 250px;
+    min-width: 250px;
+    overflow-x: inherit;
+    left: 0.1%;
+    top:20%;
+    white-space: pre-wrap;
+    box-shadow: 1px 1px 3px #222222;
+    opacity: 0;
+    border: 1px solid #111111;
+    z-index: 99999;
+    visibility: hidden;
+}
+[data-title] {
+    position: relative;
+}
+

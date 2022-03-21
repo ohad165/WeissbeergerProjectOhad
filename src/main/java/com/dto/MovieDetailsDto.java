@@ -6,8 +6,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 
 public class MovieDetailsDto extends MovieDto {
-    @JsonProperty("Year")
-    public String year;
     @JsonProperty("Rated")
     public String rated;
     @JsonProperty("Released")

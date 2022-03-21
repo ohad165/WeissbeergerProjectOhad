@@ -13,49 +13,45 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
-import static com.Constants.ERROR_BLOOD_TEST_CONFIG_PULLING_API_MSG;
+import static com.Constants.ERROR_PULLING_MOVIES_API_LOG_MSG;
 
 @Component
 @Service
 public class MoviesService {
 
     public static final String GET_MOVIES_FROM_OMDBAPI = "https://www.omdbapi.com/?apikey=bb182d9e&type=movie&s=";
+    public static final String GET_MOVIE_DETAILS_FROM_OMDBAPI = "https://www.omdbapi.com/?apikey=bb182d9e&type=movie&i=";
 
     private RestTemplate restTemplate;
-
-//    @Autowired
-//    private Environment environment;
 
     private static final Logger logger = LoggerFactory.getLogger(MoviesService.class);
 
     public MoviesService() {
         this.restTemplate = new RestTemplate();
-//        this.apiKeyValue = environment.getProperty(API_KEY_NAME);
     }
 
     public List<MovieDto> getMovies(String name) {
-        return getMoviesWrapper(name).getMoviesArray();
+        return getMoviesRespWrapper(name).getMoviesArray();
     }
 
-    private MoviesListDtoWrapper getMoviesWrapper(String name) {
-        return getBloodTestConfigJsonHelper(name).getBody();
+    private MoviesListDtoWrapper getMoviesRespWrapper(String name) {
+        return getMoviesResp(name).getBody();
     }
 
-    private ResponseEntity<MoviesListDtoWrapper> getBloodTestConfigJsonHelper(String name) {
+    private ResponseEntity<MoviesListDtoWrapper> getMoviesResp(String name) {
         ResponseEntity<MoviesListDtoWrapper> response = restTemplate
                 .getForEntity(GET_MOVIES_FROM_OMDBAPI + name, MoviesListDtoWrapper.class);
         if (response.getStatusCode() != HttpStatus.OK) {
-            logger.error(ERROR_BLOOD_TEST_CONFIG_PULLING_API_MSG, response.getStatusCode());
+            logger.error(ERROR_PULLING_MOVIES_API_LOG_MSG, response.getStatusCode());
         }
         return response;
     }
 
     public ResponseEntity<MovieDetailsDto> getMovieDetails(String imdbID) {
         ResponseEntity<MovieDetailsDto> response = restTemplate
-                .getForEntity("https://www.omdbapi.com/?apikey=bb182d9e&type=movie&i=" + imdbID,
-                        MovieDetailsDto.class);
+                .getForEntity(GET_MOVIE_DETAILS_FROM_OMDBAPI + imdbID, MovieDetailsDto.class);
         if (response.getStatusCode() != HttpStatus.OK) {
-            logger.error(ERROR_BLOOD_TEST_CONFIG_PULLING_API_MSG, response.getStatusCode());
+            logger.error(ERROR_PULLING_MOVIES_API_LOG_MSG, response.getStatusCode());
         }
         return response;
     }

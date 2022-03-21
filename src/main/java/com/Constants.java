@@ -5,7 +5,7 @@ public class Constants {
     private Constants() { }
 
     // API Const
-    public static final String ERROR_BLOOD_TEST_CONFIG_PULLING_API_MSG = "Error pulling movies api:{}";
+    public static final String ERROR_PULLING_MOVIES_API_LOG_MSG = "Error pulling movies api:{}";
     public static final String ERROR_GET_MOVIES_API_MSG = "Error movies api:{}";
 
     // Modal map responses

@@ -27,13 +27,15 @@ angular.module('ohadApp', ['ui.bootstrap'])
                     $scope.itemsByTitle = [];
                     angular.forEach($scope.items, function(item, index) {
                         if(item.Poster && item.Poster != "N/A") {
-                            $scope.itemsByTitle.push({label: item.Title, Poster: item.Poster, imdbID: item.imdbID});
+                            $scope.itemsByTitle.push({label: item.Title, Poster: item.Poster, imdbID: item.imdbID, year: item.Year});
                         }
                     });
                     $scope.filteredChoices = $scope.itemsByTitle;
                     $scope.isVisible.suggestions = $scope.filteredChoices.length > 0 ? true : false;
-                    $scope.normalizedArray = normalize($scope.itemsByTitle, CONST.SPLIT_COUNT);
+                    $scope.normalizedArray = getNormalizeWithWishList();
                     return $scope.normalizedArray;
+                } else {
+                    //$window.alert("No movie found for this input"); bring back when finish
                 }
             })
                 .catch(err => {
@@ -43,6 +45,21 @@ angular.module('ohadApp', ['ui.bootstrap'])
                 );
             return;
         };
+
+        function getNormalizeWithWishList() {
+            const wishListArray = readLocalStorage();
+            let index = 0;
+            angular.forEach($scope.filteredChoices, function(apiDataItem) {
+                angular.forEach(wishListArray, function(wishListItem) {
+                    if(apiDataItem.imdbID == wishListItem.imdbID) {
+                        $scope.filteredChoices[index].isWishListMovie = true;
+                    }
+                });
+                index++;
+            });
+
+            return normalize($scope.filteredChoices, CONST.SPLIT_COUNT);
+        }
 
         function getMoviesDetailsAPI(imdbID) {
             getSyncApi(CONST.GET_MOVIE_DETAILS_LINK + imdbID).then(data => {
@@ -58,8 +75,7 @@ angular.module('ohadApp', ['ui.bootstrap'])
                         }
                     }
                 })
-            })
-                .catch(err => {
+            }).catch(err => {
                         $window.alert("ERROR GET MOVIES:" + err.message);
                         $scope.erros = err;
                     }
@@ -77,7 +93,7 @@ angular.module('ohadApp', ['ui.bootstrap'])
             $scope.isVisible = {
                 suggestions: false
             };
-            localStorage.clear(); // remove when display
+            $scope.normalizedArray = normalizeLocalStorage();
         }
 
         function normalize(myArray, splitCount) {
@@ -98,31 +114,43 @@ angular.module('ohadApp', ['ui.bootstrap'])
             console.log($scope.testValue++);
         }, 500);
 
+
         $scope.filterItems = async function () {
             if($scope.minlength <= $scope.enteredText.length) {
                 $scope.normalizedArray = await getMoviesAPI();
             }
             else {
                 $scope.isVisible.suggestions = false;
-
-                let values = [],
-                    keys = Object.keys(localStorage),
-                    i = keys.length;
-                $scope.itemsByTitle = [];
-                while ( i-- ) {
-                    $scope.itemsByTitle.push( JSON.parse(localStorage.getItem(keys[i])) );
-                }
-
-                $scope.normalizedArray = normalize($scope.itemsByTitle, CONST.SPLIT_COUNT);
+                $scope.normalizedArray = normalizeLocalStorage();
             }
         };
+
+        $scope.getTooltipMovieMessage = function (item) {
+            return $scope.isVisible.suggestions === true ? item.label +  '\n' + item.year :
+                item.Title +  '\n' + item.Year;
+        };
+
+
+        function normalizeLocalStorage() {
+            $scope.itemsByTitle = readLocalStorage();
+            return normalize($scope.itemsByTitle, CONST.SPLIT_COUNT);
+        }
+
+        function readLocalStorage() {
+            let values = [],
+                keys = Object.keys(localStorage),
+                i = keys.length;
+            const array = [];
+            while ( i-- ) {
+                array.push( JSON.parse(localStorage.getItem(keys[i])) );
+            }
+
+            return array;
+        }
 
         $scope.redirectToMovie = function (choice) {
             $scope.itemsByTitle = [choice];
             $scope.normalizedArray = normalize($scope.itemsByTitle, CONST.SPLIT_COUNT);
-            // $scope.selected = $scope.itemsByTitle[index - 1];
-            // $scope.enteredText = $scope.selected.label;
-            // $scope.isVisible.suggestions = false;
         };
 
 }]);
