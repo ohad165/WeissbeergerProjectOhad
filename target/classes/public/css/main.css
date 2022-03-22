@@ -4,8 +4,8 @@
     color: #150101
 }
 
-.title {
-    padding-left: 15px;
+.cinema-title {
+    padding-left:30px;
 }
 
 h1 {
@@ -33,25 +33,60 @@ body {
     min-width:120px;
 }
 
-.mini-clinical-title {
-    font-size:26px;
-    padding-left:15px;
-}
-
-.blood-test-title {
-    font-size:20px;
-}
-
 .submit-button-wrapper {
     margin-left:85px;
 }
 
-
-
 .wrapper {
     margin: auto;
     max-width: 400px;
+    min-height: 300px;
 }
+
+.entered-text-wrapper {
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.movies-wrapper {
+    padding:15px;
+}
+
+.movie-wrapper {
+    max-height: 350px;
+    height: 100%;
+}
+
+.heart-wrapper {
+    text-align: center;
+    font-size: 120%;
+}
+
+.line-separator {
+    height:1px;
+    border:none;
+    color:#333;
+    background-color:#333;
+}
+
+.wish-list-wrapper {
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.choices-wrapper {
+    margin-left:65px;
+    max-height:129px;
+    max-width: 270px;
+    overflow-y:scroll;
+}
+
+.movie-modal {
+    min-height: 700px;
+    min-width: 500px;
+    overflow-y: scroll;
+}
+
 .autocomplete, pre {
     width: calc(100% - 20px);
 }
@@ -81,6 +116,7 @@ body {
     padding: 20px;
 }
 
+/*search css*/
 .container { position: relative; }
 .container img { display: block; }
 .container .fa-download { position: absolute; bottom:0; left:0; }
@@ -95,12 +131,18 @@ body {
     box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
 }
 
+.search-wrapper {
+    padding-left:41px;
+}
+
 .search input { }
 .search .fa-search {
     top: 10px;
-
+    font-size: 22px;
 }
 
+
+/*tooltip css*/
 [data-title]:hover:after {
     opacity: 1;
     transition: all 0.1s ease 0.5s;

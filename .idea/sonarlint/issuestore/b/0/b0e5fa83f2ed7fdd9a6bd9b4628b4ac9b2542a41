@@ -1,0 +1,9 @@
+
+@
+java:S2160"+Override the "equals" method in this class.(ÆÚÜQ
+‰
+java:S1319 "gThe type of "ratings" should be an interface such as "List" rather than the implementation "ArrayList".(ªñ°Øøÿÿÿÿ8Ü‘†™ù/
+x
+java:S1104#"VMake imdbRating a static final constant or non-public and provide accessors if needed.(ö›¢µûÿÿÿÿ8‘Òƒ™ù/
+r
+java:S1104$"UMake imdbVotes a static final constant or non-public and provide accessors if needed.(ýî”§8’Òƒ™ù/

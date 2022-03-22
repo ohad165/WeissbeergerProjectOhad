@@ -14,10 +14,10 @@ angular.module('ohadApp')
         }
 
         $scope.wishListCheckBoxPressed = function() {
-            if($scope.movieDetailsDto.isWishListMovie == true) {
-                window.localStorage.setItem($scope.movieModal.imdbID, JSON.stringify($scope.movieModal));
+            if($scope.movieDetailsDto.isWishListMovie === true) {
+                window.localStorage.setItem($scope.movieDetailsDto.imdbID, JSON.stringify($scope.movieDetailsDto));
             } else {
-                window.localStorage.removeItem($scope.movieModal.imdbID);
+                window.localStorage.removeItem($scope.movieDetailsDto.imdbID);
             }
         }
     })
