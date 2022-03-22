@@ -42,15 +42,14 @@ angular.module('ohadApp', ['ui.bootstrap'])
         };
 
         function setMoviesFromApi(data) {
-            $scope.items = data;
-            $scope.filteredChoices = getFilteredChoices();
+            $scope.filteredChoices = getFilteredChoices(data);
             $scope.isVisible.suggestions = $scope.filteredChoices.length > 0 ? true : false;
             $scope.normalizedArray = getNormalizeWithWishList();
         }
 
-        function getFilteredChoices() {
+        function getFilteredChoices(data) {
             const filteredChoices = [];
-            angular.forEach($scope.items, function(item) {
+            angular.forEach(data, function(item) {
                 if(item.Poster && item.Poster != CONST.EMPTY_API_VALUE) {
                     filteredChoices.push(
                         {label: item.Title, Poster: item.Poster, imdbID: item.imdbID, year: item.Year});
@@ -99,23 +98,21 @@ angular.module('ohadApp', ['ui.bootstrap'])
                 }
             }).result.then(function (movieModal) {
                 $scope.movieDetailsDto = movieModal;
-            }).then(null, function (reason) {  //when go out from the modal
-                let index = 0;
-                angular.forEach($scope.filteredChoices, function(apiDataItem) {
-                    if(apiDataItem.imdbID == $scope.movieDetailsDto.imdbID) {
+            }).then(null, function (reason) {
+                $scope.filteredChoices.forEach((item, index) => {
+                    if(item.imdbID == $scope.movieDetailsDto.imdbID) {
                         $scope.filteredChoices[index].isWishListMovie = $scope.movieDetailsDto.isWishListMovie;
                     }
-                    index++;
-                });
+                })
                 normalize($scope.filteredChoices, CONST.SPLIT_COUNT);
             });
         }
 
         function normalize(myArray, splitCount) {
             let result = [];
-            for (let i = 0; i < (myArray.length / splitCount); i++) {
-                result[i] = myArray.slice(i*splitCount, (i*splitCount) + splitCount);
-            }
+            myArray.forEach((item, index) => {
+                result[index] = myArray.slice(index * splitCount, (index * splitCount) + splitCount);
+            })
             return result;
         }
 
@@ -135,8 +132,8 @@ angular.module('ohadApp', ['ui.bootstrap'])
         function readLocalStorage() {
             let values = [], keys = Object.keys(localStorage), i = keys.length;
             const array = [];
-            while ( i-- ) {
-                array.push( JSON.parse(localStorage.getItem(keys[i])) );
+            while (i--) {
+                array.push(JSON.parse(localStorage.getItem(keys[i])));
             }
             return array;
         }

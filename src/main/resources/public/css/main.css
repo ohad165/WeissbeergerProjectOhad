@@ -49,12 +49,13 @@ body {
 }
 
 .movies-wrapper {
-    padding:15px;
+    padding:13px;
 }
 
 .movie-wrapper {
     max-height: 350px;
     height: 100%;
+    border-style: groove;
 }
 
 .heart-wrapper {
@@ -93,7 +94,7 @@ body {
     width: calc(100% - 20px);
 }
 
-.inputtext {
+.input-text {
     border: 1px solid grey;
     margin: 0;
     padding: 5px;
@@ -126,7 +127,6 @@ body {
 .search input {
     width: 270px;
     height: 32px;
-
     background: #fcfcfc;
     border: 1px solid #aaa;
     border-radius: 5px;

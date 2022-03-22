@@ -14,8 +14,8 @@ angular.module('ohadApp')
                 };
 
                 this.getMovieDetailsAPI = function (imdbID) {
-                    const link = CONST.GET_MOVIE_DETAILS_LINK + imdbID;
-                    return this.doGet(link);
+                    const url = CONST.GET_MOVIE_DETAILS_LINK + imdbID;
+                    return this.doGet(url);
                 };
 
                 this.getMoviesAPI = function (enteredText) {

@@ -7,7 +7,7 @@ import lombok.Data;
 public class MovieDto {
     public String imdbID;
     @JsonProperty("Poster")
-    public String poster;//here pull just 2 fields
+    public String poster;
     @JsonProperty("Title")
     public String title;
     @JsonProperty("Year")

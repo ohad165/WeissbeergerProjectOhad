@@ -32,7 +32,7 @@ public class MainController {
 	private MoviesService moviesService;
 
 	@GetMapping(value = GET_MOVIES_FOR_SEARCH)
-	public ModelMap getMovies(HttpServletRequest request, @PathVariable("name") String name) {
+	public ModelMap getMovies(@PathVariable("name") String name) {
 		ModelMap model = new ModelMap();
 
 		try {
@@ -47,7 +47,7 @@ public class MainController {
 	}
 
 	@GetMapping(value = GET_MOVIE_DETAILS)
-	public ModelMap getMovieDetails(HttpServletRequest request, @PathVariable("imdbID") String imdbID) {
+	public ModelMap getMovieDetails(@PathVariable("imdbID") String imdbID) {
 		ModelMap model = new ModelMap();
 
 		try {
