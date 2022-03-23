@@ -1,4 +1,4 @@
-package com.services;
+package com;
 
 import com.dto.MovieDetailsDto;
 import com.dto.MovieDto;
@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -16,15 +15,12 @@ import java.util.List;
 import static com.Constants.ERROR_PULLING_MOVIES_API_LOG_MSG;
 
 @Component
-@Service
 public class MoviesService {
 
-    public static final String GET_MOVIES_FROM_OMDBAPI = "https://www.omdbapi.com/?apikey=bb182d9e&type=movie&s=";
-    public static final String GET_MOVIE_DETAILS_FROM_OMDBAPI = "https://www.omdbapi.com/?apikey=bb182d9e&type=movie&i=";
-
-    private RestTemplate restTemplate;
-
     private static final Logger logger = LoggerFactory.getLogger(MoviesService.class);
+    private static final String GET_MOVIES_FROM_OMDBAPI = "https://www.omdbapi.com/?apikey=bb182d9e&type=movie&s=";
+    private static final String GET_MOVIE_DETAILS_FROM_OMDBAPI = "https://www.omdbapi.com/?apikey=bb182d9e&type=movie&i=";
+    private RestTemplate restTemplate;
 
     public MoviesService() {
         this.restTemplate = new RestTemplate();

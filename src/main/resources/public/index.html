@@ -33,9 +33,9 @@
 
                 <div class="search search-wrapper">
                     <span class="fa fa-search"></span>
-                    <input class="input-text" type="text" ng-model="enteredText" ng-keyup="getMovies()"/>
+                    <input class="input-text" type="text" placeholder="Search something"
+                           ng-model="enteredText" ng-keyup="getMovies()"/>
                 </div>
-
 
                 <div class="choices choices-wrapper" ng-show="isVisible.suggestions">
                     <div class="choice" ng-repeat="choice in filteredChoices"

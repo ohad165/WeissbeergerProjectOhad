@@ -9,7 +9,9 @@ angular.module('ohadApp', ['ui.bootstrap'])
             EMPTY_API_VALUE:"N/A",
             API_ERROR_MSG: "ERROR GET MOVIES:",
             SPLIT_COUNT: 6,
-            BREAK_LINE:'\n'
+            BREAK_LINE:'\n',
+            NO_POSTER_FOUND: "No poster found for this input!!",
+            NO_MOVIE_FOUND: "No movie found for this input"
         };
 
         $scope.init = function () {
@@ -32,7 +34,7 @@ angular.module('ohadApp', ['ui.bootstrap'])
                     } else if (resp.data.result && resp.data.result.length > 0) {
                         setMoviesFromApi(resp.data.result);
                     } else {
-                        //$window.alert("No movie found for this input"); bring back when finish
+                        $window.alert(CONST.NO_MOVIE_FOUND);
                     }
                 });
             } else {
@@ -55,6 +57,9 @@ angular.module('ohadApp', ['ui.bootstrap'])
                         {label: item.Title, Poster: item.Poster, imdbID: item.imdbID, year: item.Year});
                 }
             });
+            if(filteredChoices.length === 0) {
+                $window.alert(CONST.NO_MOVIE_FOUND);
+            }
             return filteredChoices
         }
 
@@ -79,8 +84,6 @@ angular.module('ohadApp', ['ui.bootstrap'])
                 } else if (resp.data.result) {
                     $scope.movieDetailsDto = resp.data.result;
                     openMovieModal();
-                } else {
-                    //$window.alert("No movie found for this input"); bring back when finish
                 }
             });
         }
@@ -98,7 +101,7 @@ angular.module('ohadApp', ['ui.bootstrap'])
                 }
             }).result.then(function (movieModal) {
                 $scope.movieDetailsDto = movieModal;
-            }).then(null, function (reason) {
+            }).then(null, function (reason) { //event when exit the modal
                 $scope.filteredChoices.forEach((item, index) => {
                     if(item.imdbID == $scope.movieDetailsDto.imdbID) {
                         $scope.filteredChoices[index].isWishListMovie = $scope.movieDetailsDto.isWishListMovie;

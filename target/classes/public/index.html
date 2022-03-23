@@ -2,8 +2,8 @@
 
 <html ng-app="ohadApp">
     <head>
+        <!--load resources-->
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
-
         <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
         <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -22,26 +22,26 @@
 
     <body class="body-class" ng-controller="mainCtrl" ng-init="init()">
         <div>
-            <div class="wrapper">
-                <br>
-                <br>
-                    <h1 class="cinema-title">MY CINEMA
-                     <cinema-icon-directive>
+         <div class="wrapper">
+             <br>
+             <br>
+                <h1 class="cinema-title">MY CINEMA
+                 <cinema-icon-directive>
 
-                     </cinema-icon-directive>
-                    </h1>
+                 </cinema-icon-directive>
+                </h1>
 
-                    <div class="search search-wrapper">
-                        <span class="fa fa-search"></span>
-                        <input class="input-text" type="text" ng-model="enteredText" ng-keyup="getMovies()"/>
-                    </div>
+                <div class="search search-wrapper">
+                    <span class="fa fa-search"></span>
+                    <input class="input-text" type="text" placeholder="Search something"
+                           ng-model="enteredText" ng-keyup="getMovies()"/>
+                </div>
 
-
-                    <div class="choices choices-wrapper" ng-show="isVisible.suggestions">
-                        <div class="choice" ng-repeat="choice in filteredChoices"
-                             ng-click="redirectToMovie(choice)">{{choice.label}}</div>
-                    </div>
-            </div>
+                <div class="choices choices-wrapper" ng-show="isVisible.suggestions">
+                    <div class="choice" ng-repeat="choice in filteredChoices"
+                         ng-click="redirectToMovie(choice)">{{choice.label}}</div>
+                </div>
+           </div>
 
             <div class="wish-list-wrapper">
                 <h2 ng-if="enteredText">Search Results for "{{enteredText}}"</h2>
@@ -49,23 +49,22 @@
                 <hr class="rounded line-separator">
             </div>
 
-                <table>
-                    <tbody>
-                        <tr ng-repeat='array in normalizedArray'>
-                            <td ng-repeat='item in array' class="movies-wrapper">
-                                <div data-title="{{ getTooltipMovieMessage(item) }}" class="movie-wrapper">
-                                    <div ng-if="item.isWishListMovie === true" class="heart-wrapper">
-                                        &#10084;&#65039;
-                                    </div>
-                                    <img ng-src="{{item.Poster}}"  width="250" height="350"
-                                         ng-click="getMovieDetails(item)"/>
+            <table>
+                <tbody>
+                    <tr ng-repeat='array in normalizedArray'>
+                        <td ng-repeat='item in array' class="movies-wrapper">
+                            <div data-title="{{ getTooltipMovieMessage(item) }}" class="movie-wrapper">
+                                <div ng-if="item.isWishListMovie === true" class="heart-wrapper">
+                                    &#10084;&#65039;
                                 </div>
-                            <td>
-                        </tr>
-                    </tbody>
-                </table>
+                                <img ng-src="{{item.Poster}}"  width="250" height="350"
+                                     ng-click="getMovieDetails(item)"/>
+                            </div>
+                        <td>
+                    </tr>
+                </tbody>
+            </table>
 
         </div>
     </body>
-
 </html>

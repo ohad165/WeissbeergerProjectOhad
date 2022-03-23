@@ -3,7 +3,6 @@ package com;
 
 import com.dto.MovieDetailsDto;
 import com.dto.MovieDto;
-import com.services.MoviesService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-
 import java.util.List;
 
 import static com.Constants.ERROR_GET_MOVIES_API_MSG;
@@ -21,12 +18,11 @@ import static com.Constants.MODAL_MAP_ERRORS;
 import static com.Constants.MODAL_MAP_RESULT;
 
 @RestController
-public class MainController {
+public class MoviesController {
 
-	private final Logger logger = LoggerFactory.getLogger(MainController.class);
-
-	public static final String GET_MOVIES_FOR_SEARCH = "/get_movies/{name}";
-	public static final String GET_MOVIE_DETAILS = "/get_movies_details/{imdbID}";
+	private final Logger logger = LoggerFactory.getLogger(MoviesController.class);
+	private static final String GET_MOVIES_FOR_SEARCH = "/get_movies/{name}";
+	private static final String GET_MOVIE_DETAILS = "/get_movies_details/{imdbID}";
 
 	@Autowired
 	private MoviesService moviesService;
