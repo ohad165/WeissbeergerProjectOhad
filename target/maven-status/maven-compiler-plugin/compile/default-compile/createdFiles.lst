@@ -1,0 +1,8 @@
+com/Application.class
+com/dto/MovieDetailsDto.class
+com/dto/MovieDto.class
+com/dto/RatingDto.class
+com/Constants.class
+com/MoviesController.class
+com/MoviesService.class
+com/dto/MoviesListDtoWrapper.class

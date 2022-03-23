@@ -5,17 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13c2dcb7-1ca1-4788-b9ae-ae2834f1eddc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/spring-boot-ohad-app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea 2/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea 2/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea 2/azure/azureSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea 2/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea 2/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea 2/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea 2/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea 2/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea 2/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea 2/sonarlint/issuestore/0/6/060e4465fa508961e9fd44875c5a850a9925ebfe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea 2/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea 2/sonarlint/issuestore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea 2/sonarlint/issuestore/c/3/c3e2c8e4d555848367e24d79fdd746d0afc09501" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea 2/sonarlint/issuestore/d/8/d8b3d3eef57023ebe8e47f05c6bf644ef7c8f302" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea 2/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea 2/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea 2/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_22.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_6_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_npm_htmx_org_1_6_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MoviesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dto/MovieDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dto/MovieDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/services/MoviesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MoviesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/main-ctrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/main-ctrl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/MainController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/services/MoviesService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/js/main-ctrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/js/main-ctrl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-boot-ohad.iml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-ohad.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/AnalyzerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MoviesController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MoviesService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dto/MovieDetailsDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dto/MovieDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dto/MoviesListDtoWrapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dto/RatingDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/cinema-icon.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/js/cinema-icon-directive.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/js/main-ctrl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/js/movie-modal-ctrl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/js/u-api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/movie-modal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/AnalyzerTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +113,19 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="spring-boot-ohad" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="spring-boot-ohad" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="spring-boot-ohad" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.Application" />
